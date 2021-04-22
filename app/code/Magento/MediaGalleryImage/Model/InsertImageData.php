@@ -6,14 +6,10 @@
 
 declare(strict_types=1);
 
-namespace Magento\MediaGalleryUi\Model;
-
-use Magento\MediaGalleryUi\Model\InsertImageDataExtensionInterface;
+namespace Magento\MediaGalleryImage\Model;
 
 /**
  * Class responsible to provide insert image details
- * @deprecated
- * @see \Magento\MediaGalleryImage\Model\InsertImageData
  */
 class InsertImageData implements InsertImageDataInterface
 {

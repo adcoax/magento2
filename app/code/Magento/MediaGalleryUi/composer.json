@@ -14,7 +14,8 @@
         "magento/module-media-content-api": "*",
         "magento/module-cms": "*",
         "magento/module-directory": "*",
-        "magento/module-authorization": "*"
+        "magento/module-authorization": "*",
+        "magento/module-media-gallery-image": "*"
     },
     "type": "magento2-module",
     "license": [

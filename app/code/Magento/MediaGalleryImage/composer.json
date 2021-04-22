@@ -1,0 +1,24 @@
+{
+    "name": "magento/module-media-gallery-image",
+    "description": "The Magento_MediaGalleryImage module is responsible with everything related to image HTML tags",
+    "require": {
+        "php": "~7.3.0||~7.4.0",
+        "magento/framework": "*",
+        "magento/module-media-gallery-ui": "*",
+        "magento/module-cms": "*",
+        "magento/module-catalog": "*"
+    },
+    "type": "magento2-module",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Magento\\MediaGalleryImage\\": ""
+        }
+    }
+}

@@ -8,29 +8,27 @@ declare(strict_types=1);
 
 namespace Magento\Cms\Model\Wysiwyg\Images;
 
-use Magento\Catalog\Helper\Data as CatalogHelper;
-use Magento\Cms\Helper\Wysiwyg\Images as ImagesHelper;
+use Magento\MediaGalleryImage\Model\ImageHtmlInterface;
 
+/**
+ * Old wrapper around newer InsertImageHtml
+ * @deprecated
+ * @see \Magento\MediaGalleryImage\Model\InsertImageHtml
+ */
 class GetInsertImageContent
 {
     /**
-     * @var ImagesHelper
+     * @var ImageHtmlInterface
      */
-    private $imagesHelper;
+    private $see;
 
     /**
-     * @var CatalogHelper
+     * GetInsertImageContent constructor.
+     * @param ImageHtmlInterface $see
      */
-    private $catalogHelper;
-
-    /**
-     * @param ImagesHelper $imagesHelper
-     * @param CatalogHelper $catalogHelper
-     */
-    public function __construct(ImagesHelper $imagesHelper, CatalogHelper $catalogHelper)
+    public function __construct(ImageHtmlInterface $see)
     {
-        $this->imagesHelper = $imagesHelper;
-        $this->catalogHelper = $catalogHelper;
+        $this->see = $see;
     }
 
     /**
@@ -41,6 +39,8 @@ class GetInsertImageContent
      * @param bool $renderAsTag
      * @param int|null $storeId
      * @return string
+     * @deprecated
+     * @see \Magento\MediaGalleryImage\Model\InsertImageHtml::execute()
      */
     public function execute(
         string $encodedFilename,
@@ -48,16 +48,11 @@ class GetInsertImageContent
         bool $renderAsTag,
         ?int $storeId = null
     ): string {
-        $filename = $this->imagesHelper->idDecode($encodedFilename);
-
-        $this->catalogHelper->setStoreId($storeId);
-        $this->imagesHelper->setStoreId($storeId);
-
-        if ($forceStaticPath) {
-            // phpcs:ignore Magento2.Functions.DiscouragedFunction
-            return parse_url($this->imagesHelper->getCurrentUrl() . $filename, PHP_URL_PATH);
-        }
-
-        return $this->imagesHelper->getImageHtmlDeclaration($filename, $renderAsTag);
+        return $this->see->execute(
+            $encodedFilename,
+            $forceStaticPath,
+            $renderAsTag,
+            $storeId
+        );
     }
 }
