@@ -80,7 +80,7 @@ class InsertImageData implements InsertImageDataInterface
     /**
      * Get extension attributes
      *
-     * @return \Magento\MediaGalleryUi\Model\InsertImageDataExtensionInterface|null
+     * @return \Magento\MediaGalleryImage\Model\InsertImageDataExtensionInterface|null
      */
     public function getExtensionAttributes(): ?InsertImageDataExtensionInterface
     {
@@ -90,7 +90,7 @@ class InsertImageData implements InsertImageDataInterface
     /**
      * Set extension attributes
      *
-     * @param \Magento\MediaGalleryUi\Model\InsertImageDataExtensionInterface $extensionAttributes
+     * @param \Magento\MediaGalleryImage\Model\InsertImageDataExtensionInterface $extensionAttributes
      * @return void
      */
     public function setExtensionAttributes(InsertImageDataExtensionInterface $extensionAttributes): void
